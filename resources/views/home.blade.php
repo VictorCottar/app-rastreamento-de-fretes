@@ -37,4 +37,26 @@
             <img src="/entrega.webp" alt="Placeholder" class="object-cover w-full h-full">
         </div>
     </div>
+
+    <script>
+        function aplicarMascaraTelefone($input) {
+            let valor = $input.value;
+            valor = valor.replace(/\D/g, '');
+
+            if (valor.length > 0) {
+                valor = "(" + valor;
+            }
+
+            if (valor.length > 3) {
+                valor = valor.slice(0, 3) + ") " + valor.slice(3);
+            }
+
+            if (valor.length > 10) {
+                valor = valor.slice(0, 10) + "-" + valor.slice(10);
+            }
+
+            $input.value = valor.slice(0, 15);
+        }
+    </script>
+
 </x-layout>
